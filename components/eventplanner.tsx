@@ -3,14 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 
-// Data extracted exactly from your screenshots
+
 const events = [
     {
         time: '8:00am-10:00am',
         title: 'Kick-off & Networking',
         description: 'Opening ceremony, team formation, and getting started with the platforms.',
         theme: 'blue',
-        imageSrc: '/19.png', // Replace with your actual image path
+        imageSrc: '/19.png', 
     },
     {
         time: '10:00am-2:00pm',

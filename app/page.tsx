@@ -1,9 +1,11 @@
-import EventTimeline from "@/components/eventplanner";
+import EventTimeline from '../components/eventplanner';
+import LeadOrganizers from '../components/leadorganizer';
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-gray-50"> 
       <EventTimeline />
+      <LeadOrganizers /> 
     </main>
   );
 }
