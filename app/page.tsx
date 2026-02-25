@@ -1,9 +1,9 @@
-import Image from "next/image";
+import EventTimeline from "@/components/eventplanner";
 
 export default function Home() {
   return (
-    <div>
-      
-    </div>
+    <main>
+      <EventTimeline />
+    </main>
   );
 }
