@@ -4,6 +4,7 @@ import LeadOrganizers from '../components/leadorganizer';
 import GetInTouch from '../components/get-in-touch';
 import PastEvents from '@/components/PastEvents';
 import FAQ from '@/components/FAQ';
+import Sponsors from "@/components/Sponsors";
 
 
 
@@ -14,6 +15,7 @@ export default function Home() {
       <EventTimeline />
       <LeadOrganizers /> 
       <PastEvents />
+     <Sponsors />
       <FAQ />
       <GetInTouch />
     </main>
