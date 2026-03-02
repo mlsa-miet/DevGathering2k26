@@ -1,4 +1,12 @@
-import Image from "next/image";
+import DevGathering from "@/components/devgathering";
+import EventTimeline from '../components/eventplanner';
+import LeadOrganizers from '../components/leadorganizer';
+import GetInTouch from '../components/get-in-touch';
+import PastEvents from '@/components/PastEvents';
+import FAQ from '@/components/FAQ';
+import Sponsors from "@/components/Sponsors";
+
+
 
 export default function Home() {
   return (
@@ -60,3 +68,17 @@ export default function Home() {
     </>
   );
 }
+    <main className="bg-gray-50"> 
+     return <DevGathering />
+      <EventTimeline />
+      <LeadOrganizers /> 
+      <PastEvents />
+     <Sponsors />
+      <FAQ />
+      <GetInTouch />
+    </main>
+  );
+}
+
+
+
