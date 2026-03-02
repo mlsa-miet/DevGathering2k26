@@ -1,26 +1,225 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;   /* prevents side scroll */
+}
+
+/* 4 pastel background split */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        #cfe8ff 25%,
+        #fff3c4 25%,
+        #fff3c4 50%,
+        #d8f3dc 50%,
+        #d8f3dc 75%,
+        #ffd6d6 75%
+    );
+    z-index: -1;
+}
+
+/* Main container */
+.container {
+    width: 85%;
+    margin: 60px auto;
+    background: #f9f9f9;
+    border: 2px solid #333;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Pink description box */
+.description {
+    width: 70%;
+    margin: 0 auto 40px auto;
+    padding: 15px;
+    background: #ffb6b6;
+    border: 2px dotted black;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Cards layout */
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Individual card */
+.card {
+    flex: 1;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px dotted black;
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card1 { background: #cfe8ff; }
+.card2 { background: #fff3c4; }
+.card3 { background: #d8f3dc; }
+
+/* Center bulb properly */
+.card2 {
+    align-items: center;
+    text-align: center;
+}
+
+.card2 img {
+    width: 220px;
+    margin-top: 20px;
+    align-self: center;
+}   
+
+/* Left top illustration */
+.megaphone {
+    position: absolute;
+    left: -60px;
+    top: 60px;
+    width: 180px;
+}
+
+/* Impact card images positioned inside */
+.impact-images {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.impact-images img {
+    width: 200px;
+}
+
+/* ===== HEADER ===== */
+.header {
+    width: 100%;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+}
+
+/* Logo inside header */
+.logo {
+    width: 100px;   /* adjust size here */
+    height: auto;
+}
+
+/* Community Image Styling */
+.community-img {
+    width: 260px;
+    margin-top: 20px;
+    align-self: center;
+}
+
+/* ============================= */
+/* 📱 TABLET RESPONSIVE (≤ 992px) */
+/* ============================= */
+
+@media (max-width: 992px) {
+
+    .container {
+        width: 92%;
+        padding: 30px;
+    }
+
+    .description {
+        width: 100%;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        min-height: auto;
+    }
+
+    .megaphone {
+        position: relative;
+        left: 0;
+        top: 0;
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 140px;
+    }
+
+    .community-img {
+        width: 200px;
+    }
+
+    .card2 img {
+        width: 170px;
+    }
+
+    .impact-images {
+        justify-content: center;
+    }
+
+    .impact-images img {
+        width: 150px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+}
+
+/* ============================= */
+/* 📱 MOBILE RESPONSIVE (≤ 576px) */
+/* ============================= */
+
+@media (max-width: 576px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .header {
+        padding: 10px 20px;
+    }
+
+    .logo {
+        width: 60px;
+    }
+
+    .community-img {
+        width: 160px;
+    }
+
+    .card2 img {
+        width: 140px;
+    }
+
+    .impact-images img {
+        width: 110px;
+    }
 }
