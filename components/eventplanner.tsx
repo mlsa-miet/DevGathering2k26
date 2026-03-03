@@ -10,7 +10,7 @@ const events = [
         title: 'Kick-off & Networking',
         description: 'Opening ceremony, team formation, and getting started with the platforms.',
         theme: 'blue',
-        imageSrc: '/19.png', 
+        imageSrc: '/19.png',
     },
     {
         time: '10:00am-2:00pm',
@@ -124,7 +124,7 @@ export default function EventTimeline() {
                     {/* Timeline Wrapper */}
                     <div className="relative">
                         {/* Center Vertical Line */}
-                        <div className="absolute left-[30%] top-8 bottom-8 w-0.5 bg-black -ml-[1px]"></div>
+                        <div className="absolute left-[28px] md:left-[30%] top-8 bottom-8 w-0.5 bg-black -ml-[1px]"></div>
 
                         {/* Event Items */}
                         {events.map((event, index) => {
@@ -132,26 +132,26 @@ export default function EventTimeline() {
 
 
                             return (
-                                <div key={index} className="flex items-center w-full mb-10 relative">
+                                <div key={index} className="flex flex-col md:flex-row items-start md:items-center w-full mb-10 md:mb-12 relative">
 
                                     {/* Left Side: Time Pill */}
-                                    <div className="w-[30%] pr-6 sm:pr-8 flex justify-end">
-                                        <div className={`${theme.pill} px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap shadow-sm`}>
+                                    <div className="w-full md:w-[30%] pl-[60px] md:pl-0 pr-0 md:pr-8 flex md:justify-end mb-3 md:mb-0">
+                                        <div className={`${theme.pill} px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap shadow-sm inline-block`}>
                                             {event.time}
                                         </div>
                                     </div>
 
                                     {/* Center: Node */}
                                     <div
-                                        className={`absolute left-[30%] w-5 h-5 -ml-[10px] rounded-full border-[3px] bg-white z-10 ${theme.border}`}
+                                        className={`absolute left-[28px] md:left-[30%] top-2 md:top-1/2 w-5 h-5 -ml-[10px] md:-mt-[10px] rounded-full border-[3px] bg-white z-10 ${theme.border}`}
                                     ></div>
 
                                     {/* Right Side: Content Card */}
-                                    <div className="w-[70%] pl-6 sm:pl-8">
-                                        <div className={`border-2 rounded-2xl p-6 bg-white flex justify-between items-center ${theme.border} hover:shadow-md transition-shadow duration-200`}>
+                                    <div className="w-full md:w-[70%] pl-[60px] md:pl-8">
+                                        <div className={`border-2 rounded-2xl p-5 sm:p-6 bg-white flex flex-col sm:flex-row justify-between items-start sm:items-center ${theme.border} hover:shadow-md transition-shadow duration-200`}>
 
                                             {/* Text Content */}
-                                            <div className="pr-4 max-w-md">
+                                            <div className="pr-0 sm:pr-4 flex-grow mb-4 sm:mb-0 w-full sm:w-auto">
                                                 <h3 className="text-lg font-bold mb-2 text-gray-900">{event.title}</h3>
                                                 <p className="text-gray-500 text-sm leading-relaxed">
                                                     {event.description}
@@ -159,14 +159,15 @@ export default function EventTimeline() {
                                             </div>
 
                                             {/* Dynamic Next.js Image */}
-                                            <div className="hidden sm:flex flex-shrink-0 relative w-40 h-30 ml-4 transform scale-[1.35] lg:scale-[1.6] origin-right lg:origin-right pointer-events-none drop-shadow-sm">
+                                            <div className="flex-shrink-0 relative w-full md:w-40 h-48 md:h-32 md:ml-4 md:transform md:scale-[1.2] lg:scale-[1.5] md:origin-right pointer-events-none drop-shadow-sm mt-4 md:mt-0">
                                                 {event.imageSrc ? (
                                                     <Image
                                                         src={event.imageSrc}
                                                         alt={event.title}
                                                         fill
                                                         style={{ objectFit: 'contain' }}
-                                                        sizes="250px"
+                                                        sizes="(max-width: 768px) 100vw, 250px"
+                                                        priority={index < 2}
                                                     />
                                                 ) : (
                                                     <div className="w-full h-full bg-gray-50 rounded-lg border border-dashed border-gray-200 flex items-center justify-center text-xs text-gray-400">

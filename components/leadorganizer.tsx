@@ -1,5 +1,5 @@
 import React from 'react';
-// import Image from 'next/image';
+import Image from 'next/image';
 
 // Define the shape of your organizer data
 interface Organizer {
@@ -22,7 +22,7 @@ const organizers: Organizer[] = [
 export default function LeadOrganizers() {
   return (
     <div className="relative w-full py-16 px-4 sm:px-8 font-sans text-gray-800">
-      
+
       {/* Background Pattern (Matches the Timeline component) */}
       <div className="fixed inset-0 flex z-[-1]">
         <div className="flex-1 bg-[#eff6ff] border-r border-dashed border-blue-200"></div>
@@ -30,7 +30,7 @@ export default function LeadOrganizers() {
         <div className="flex-1 bg-[#f0fdf4] border-r border-dashed border-green-200"></div>
         <div className="flex-1 bg-[#fff1f2]"></div>
       </div>
-      <div 
+      <div
         className="fixed inset-0 z-[-1] opacity-30"
         style={{
           backgroundImage: `
@@ -43,7 +43,7 @@ export default function LeadOrganizers() {
 
       {/* Main Container */}
       <div className="max-w-5xl mx-auto">
-        
+
         {/* Title */}
         <div className="text-center mb-8">
           <h2 className="text-4xl font-extrabold tracking-tight inline-flex items-center space-x-3">
@@ -54,22 +54,22 @@ export default function LeadOrganizers() {
 
         {/* Window-style Card Container */}
         <div className="bg-white rounded-t-[2rem] rounded-b-[2rem] shadow-xl border-2 border-gray-800 overflow-hidden">
-          
+
           {/* Window Header Bar */}
           <div className="bg-[#a7c7e7] p-4 flex justify-end items-center border-b-2 border-gray-800 relative overflow-hidden h-14">
-             {/* Subtle cross pattern on the header bar */}
-            <div 
-              className="absolute inset-0 opacity-[0.15]" 
-              style={{ 
+            {/* Subtle cross pattern on the header bar */}
+            <div
+              className="absolute inset-0 opacity-[0.15]"
+              style={{
                 backgroundImage: `
                   linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), 
                   linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)
-                `, 
+                `,
                 backgroundSize: '40px 40px',
                 backgroundPosition: '0 0, 20px 20px'
               }}
             ></div>
-            
+
             {/* Window Controls (Decorative) */}
             <div className="flex space-x-4 z-10 mr-2 items-center">
               {/* Minimize */}
@@ -78,7 +78,7 @@ export default function LeadOrganizers() {
               </div>
               {/* Maximize */}
               <div className="w-6 h-6 border-2 border-gray-800 flex items-center justify-center bg-transparent">
-                 <div className="w-3 h-3 border-2 border-gray-800"></div>
+                <div className="w-3 h-3 border-2 border-gray-800"></div>
               </div>
               {/* Close */}
               <div className="w-6 h-6 border-2 border-gray-800 flex items-center justify-center bg-transparent relative">
@@ -98,29 +98,34 @@ export default function LeadOrganizers() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
               {organizers.map((organizer, index) => (
                 <div key={index} className="flex flex-col h-full">
-                  
+
                   {/* Image Placeholder Card */}
                   <div className="bg-white border-[1.5px] border-gray-300 rounded-xl h-64 w-full flex flex-col items-center justify-end mb-4 shadow-sm relative overflow-hidden group hover:border-blue-400 transition-colors duration-300">
-                    
-                    {/* Uncomment below when you are ready to use Next.js Image */}
-                    {/* {organizer.imageSrc ? (
-                      <Image 
-                        src={organizer.imageSrc} 
-                        alt={organizer.role} 
-                        fill 
-                        style={{ objectFit: 'cover' }} 
-                      />
-                    ) : null} 
-                    */}
 
-                    {/* Role Title placed inside the bottom of the card as shown in your image */}
-                    <div className="w-full pb-4 z-10 relative flex justify-center">
-                      <h3 className="text-center text-blue-600 font-medium text-sm">
+                    {organizer.imageSrc ? (
+                      <Image
+                        src={organizer.imageSrc}
+                        alt={organizer.role}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+                        <svg className="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                      </div>
+                    )}
+
+                    {/* Role Title placed inside the bottom of the card */}
+                    <div className="w-full pb-4 z-10 relative flex justify-center bg-gradient-to-t from-white via-white/90 to-transparent pt-8 text-shadow-sm">
+                      <h3 className="text-center text-blue-600 font-bold text-sm tracking-wide">
                         {organizer.role}
                       </h3>
                     </div>
                   </div>
-                  
+
                 </div>
               ))}
             </div>
