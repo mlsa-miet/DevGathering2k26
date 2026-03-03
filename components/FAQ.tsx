@@ -75,12 +75,11 @@ function GridBackground() {
       {/* Grid lines */}
       <div
         className="absolute inset-0"
+               aria-hidden="true"
         style={{
-          backgroundImage: `
-            linear-gradient(rgba(100, 140, 200, 0.25) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(100, 140, 200, 0.25) 1px, transparent 1px)
-          `,
-          backgroundSize: "28px 28px",
+          backgroundImage:
+            "linear-gradient(to right, rgba(0,0,0,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.12) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
         }}
       />
     </div>
@@ -97,11 +96,11 @@ function FaqItem({ faq }: { faq: Faq }) {
       style={{ fontFamily: "inherit" }}
     >
       <button
-        className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
+        className="w-full flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 text-left gap-3 sm:gap-4"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
-        <span className="font-bold text-gray-900 text-[15px] leading-snug" style={{ fontFamily: "'Courier New', monospace" }}>
+        <span className="font-bold text-gray-900 text-sm sm:text-[15px] leading-snug" style={{ fontFamily: "'Courier New', monospace" }}>
           {faq.question}
         </span>
         <span
@@ -122,9 +121,9 @@ function FaqItem({ faq }: { faq: Faq }) {
       </button>
 
       {open && (
-        <div className="px-9 pb-5 ">
+        <div className="px-4 sm:px-9 pb-5">
           <div className="border-t border-gray-100 pt-4">
-            <p className="font-semibold text-gray-400 text-sm leading-relaxed" style={{ fontFamily: "'Courier New', monospace" }}>
+            <p className="font-semibold text-gray-400 text-xs sm:text-sm leading-relaxed" style={{ fontFamily: "'Courier New', monospace" }}>
               {faq.answer}
             </p>
           </div>
@@ -141,7 +140,7 @@ export default function FAQ() {
 
   return (
     <section
-      className="relative w-full py-10 px-10 overflow-hidden"
+      className="relative w-full py-10 px-4 sm:px-6 lg:px-10 overflow-hidden"
       style={{ fontFamily: "'Geist', sans-serif" }}
     >
       <GridBackground />
@@ -151,11 +150,11 @@ export default function FAQ() {
         <div className="flex items-start justify-center gap-4 mb-3">
        
           <div className="text-center">
-            <h2 className="text-5xl font-black text-gray-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
               Frequently Asked{" "}
-              <span className="text-blue-500">Questions</span>
+              <span className="text-[#0051ff]">Questions</span>
             </h2>
-            <p className="text-gray-700 underline underline-offset-2 mt-3 text-base">
+            <p className="text-gray-700 underline underline-offset-2 mt-3 text-sm sm:text-base">
               Got questions? We've got answers.
             </p>
           </div>
@@ -163,7 +162,7 @@ export default function FAQ() {
 
         {/* outer card */}
         <div
-          className="mt-10 rounded-3xl border-2 border-gray-800 bg-black/10 backdrop-blur-sm p-6 md:p-8"
+          className="mt-8 sm:mt-10 rounded-3xl border-2 border-gray-800 bg-black/10 backdrop-blur-sm p-4 sm:p-6 md:p-8"
         >
           {/* two-column FAQ grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-b-2xl">
@@ -183,7 +182,7 @@ export default function FAQ() {
 
           {/* "Can't find your answer?" footer card */}
           <div className="mt-8 flex items-center justify-center">
-            <div className="relative bg-white rounded-2xl shadow-sm border border-gray-500 px-10 py-6 flex flex-col items-center gap-3 max-w-sm w-full">
+            <div className="relative bg-white rounded-2xl shadow-sm border border-gray-500 px-5 sm:px-10 py-6 flex flex-col items-center gap-3 max-w-sm w-full">
               {/* illustration overlapping top-left */}
           
               <p className="font-black text-gray-900 text-lg">Can't find your answer?</p>
