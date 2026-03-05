@@ -1,21 +1,20 @@
-import { 
-  HiOutlineEnvelope, 
-  HiOutlinePhone, 
-  HiOutlineMapPin 
+import {
+  HiOutlineEnvelope,
+  HiOutlinePhone,
+  HiOutlineMapPin
 } from "react-icons/hi2";
-import { Inter } from 'next/font/google';
-import { Roboto_Condensed } from 'next/font/google';
+import { Inter } from "next/font/google";
+import { Roboto_Condensed } from "next/font/google";
 
 const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400','500','600','700'],
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const roboto = Roboto_Condensed({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
-
 
 const contactInfo = [
   {
@@ -38,18 +37,18 @@ const contactInfo = [
 const GetInTouch = () => {
   return (
     <section className={`${inter.className} relative min-h-screen overflow-hidden`}>
-      {/* Vertical color stripes background */}
+
+      {/* Background Stripes */}
       <div className="absolute inset-0 flex" aria-hidden="true">
-        <div className="flex-1" style={{ backgroundColor: "#d4e4fc" }} />
-        <div className="flex-1" style={{ backgroundColor: "#fce9a8" }} />
-        <div className="flex-1" style={{ backgroundColor: "#c8e6c9" }} />
-        <div className="flex-1" style={{ backgroundColor: "#f8bbd0" }} />
+        <div className="flex-1 bg-[#d4e4fc]" />
+        <div className="flex-1 bg-[#fce9a8]" />
+        <div className="flex-1 bg-[#c8e6c9]" />
+        <div className="flex-1 bg-[#f8bbd0]" />
       </div>
 
-      {/* Grid overlay on stripes - higher contrast */}
+      {/* Grid Overlay */}
       <div
-        className="absolute inset-0 opacity-40"
-        aria-hidden="true"
+        className="absolute inset-0 opacity-30"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(0,0,0,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.12) 1px, transparent 1px)",
@@ -58,104 +57,106 @@ const GetInTouch = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-between p-6 md:p-12">
-        <div className="w-full max-w-7xl mx-auto flex-1">
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Left - Contact Info */}
-            <div className="space-y-10 pt-10 md:-ml-40 lg:-ml-50">
+      <div className="relative z-10 min-h-screen flex flex-col justify-between px-4 sm:px-6 md:px-10 lg:px-16 py-10">
+
+        <div className="max-w-7xl mx-auto w-full flex-1">
+
+          {/* Responsive Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+            {/* LEFT SIDE */}
+            <div className="space-y-10">
+
               <div>
-                <h1
-                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
-                  style={{
-                    color: '#222',
-                  }}
-                >
-                  Get in <span style={{ color: '#2439F5', marginLeft: '0.6rem' }}>Touch</span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#222]">
+                  Get in
+                  <span className="text-[#2439F5] ml-3">Touch</span>
                 </h1>
-                <p className={`${roboto.className} mt-15 text-black leading-relaxed max-w-md text-base md:text-lg`}>
+
+                <p className={`${roboto.className} mt-6 text-black leading-relaxed max-w-md text-sm md:text-base`}>
                   Have questions about registration, sponsorship, or volunteering?
-                  <br />Our team is here to help you. Reach out to us through any of the
+                  Our team is here to help you. Reach out to us through any of the
                   channels below.
                 </p>
               </div>
 
-              <div className="space-y-5 mt-20">
+              {/* Contact Items */}
+              <div className="space-y-6">
+
                 {contactInfo.map((item) => (
-                  <div key={item.label} className="flex items-center gap-5">
-                    <div className="w-11 h-11 flex items-center justify-center shrink-0">
-                      <item.icon className="w-7 h-7 text-black" />
+                  <div key={item.label} className="flex items-center gap-4">
+
+                    <div className="w-10 h-10 flex items-center justify-center">
+                      <item.icon className="w-6 h-6 text-black" />
                     </div>
+
                     <div>
-                      <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider font-semibold">
+                      <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
                         {item.label}
                       </p>
-                      <p className="font-medium text-black text-base md:text-lg">{item.value}</p>
+
+                      <p className="font-medium text-black text-base">
+                        {item.value}
+                      </p>
                     </div>
+
                   </div>
                 ))}
+
               </div>
             </div>
 
-            {/* Right - Illustrations + Card */}
-            <div className="flex flex-col items-center">
-              <div className="flex items-end justify-center gap-10 -mb-4 relative z-10">
-                {/* Images */}
-                  <img
-                    src="/24.png"
-                    alt="Person working on laptop"
-                    className="w-36 md:w-48 lg:w-56 scale-x-[-1]"
-                    style={{ mixBlendMode: "multiply" }}
-                    loading="lazy"
-                  />
-                  <img
-                    src="/24.png"
-                    alt="Person working on laptop"
-                    className="w-36 md:w-48 lg:w-56"
-                    style={{ mixBlendMode: "multiply" }}
-                    loading="lazy"
-                  />
+            {/* RIGHT SIDE */}
+            <div className="flex flex-col items-center w-full">
+
+              {/* Images */}
+              <div className="flex items-end justify-center gap-6 mb-2">
+
+                <img
+                  src="/24.png"
+                  className="w-28 sm:w-36 md:w-44 lg:w-52 scale-x-[-1]"
+                  style={{ mixBlendMode: "multiply" }}
+                />
+
+                <img
+                  src="/24.png"
+                  className="w-28 sm:w-36 md:w-44 lg:w-52"
+                  style={{ mixBlendMode: "multiply" }}
+                />
+
               </div>
 
-              {/* Horizontal white card box */}
-              <div className="w-[120%] h-35 md:h-100 rounded-2xl bg-white/70 backdrop-blur-lg shadow-sm relative overflow-hidden" style={{ marginLeft: '15%' }}>
-                {/* Grid overlay */}
+              {/* Card */}
+              <div className="w-full max-w-lg h-32 md:h-80 rounded-2xl bg-white/70 backdrop-blur-lg shadow-sm relative overflow-hidden">
+
                 <div
-                  className="absolute inset-0 pointer-events-none"
+                  className="absolute inset-0 opacity-20"
                   style={{
                     backgroundImage:
                       "linear-gradient(to right, rgba(0,0,0,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.12) 1px, transparent 1px)",
                     backgroundSize: "24px 24px",
-                    zIndex: 1,
-                    opacity: 0.2,
                   }}
-                  aria-hidden="true"
                 />
+
               </div>
+
             </div>
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="w-full max-w-7xl mx-auto mt-12 flex items-end justify-between">
-          <div className="flex flex-col items-center gap-1">
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-            </div>
-            <img
-              src="/Mlsa.ico"
-              alt="MLSA MIET Logo"
-              className="w-20 md:w-35 object-contain transform -translate-x-50"
-              loading="lazy"
-            />
-          </div>
-          <div>
-            {/* sticker */}
-            <img
-              src="/Black_and_White_Yellow_Green_Basic_Concept_Mapping_Brainstorm_Presentation_20260222_190506_0000-removebg-preview (1).png"
-              alt="MLSA MIET Presents DevGathering 2K26 Hackathon"
-              className="w-64 md:w-80"
-              loading="lazy"
-            />
-          </div>
+        {/* FOOTER */}
+        <div className="max-w-7xl mx-auto w-full mt-10 flex flex-col md:flex-row items-center justify-between gap-6">
+
+          <img
+            src="/Mlsa.ico"
+            className="w-20 md:w-32 object-contain"
+          />
+
+          <img
+            src="/Black_and_White_Yellow_Green_Basic_Concept_Mapping_Brainstorm_Presentation_20260222_190506_0000-removebg-preview (1).png"
+            className="w-52 md:w-72"
+          />
+
         </div>
       </div>
     </section>
